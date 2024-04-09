@@ -3,7 +3,8 @@ from django.shortcuts import render
 
 # Create your views here.
 def about(request):
-    return HttpResponse('fuck')
+    template = 'pages/about.html'
+    return render(request, template)
 
 def rules(request):
     return HttpResponse('fuck')
