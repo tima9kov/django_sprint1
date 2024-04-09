@@ -50,7 +50,11 @@ def index (request):
     return render(request, template, context)
 
 def post_detail(request, id):
-    return HttpResponse('fuck')
+    template = 'blog/detail.html'
+    context = {'post':posts[id]}
+    return render(request, template, context)
 
 def category_posts(request, category_slug):
-    return HttpResponse('fuck')
+    template = 'blog/category.html'
+    context = {'slug':category_slug}
+    return render(request, template, context)

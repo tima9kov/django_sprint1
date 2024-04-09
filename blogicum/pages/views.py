@@ -7,4 +7,5 @@ def about(request):
     return render(request, template)
 
 def rules(request):
-    return HttpResponse('fuck')
+    template = 'pages/rules.html'
+    return render(request, template)
