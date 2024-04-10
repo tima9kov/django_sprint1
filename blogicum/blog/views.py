@@ -48,20 +48,17 @@ reversed_posts = list(reversed(posts))
 
 
 def index(request):
-    template = "blog/index.html"
     context = {"posts": reversed_posts}
-    return render(request, template, context)
+    return render(request, "blog/index.html", context)
 
 
-def post_detail(request, id):
-    if posts[id] not in posts:
+def post_detail(request, post_id):
+    if not any(post_id == post['id'] for post in posts):
         raise Http404("404. Not Found")
-    template = "blog/detail.html"
-    context = {"post": posts[id]}
-    return render(request, template, context)
+    context = {"post": posts[post_id]}
+    return render(request, "blog/detail.html", context)
 
 
 def category_posts(request, category_slug):
-    template = "blog/category.html"
     context = {"slug": category_slug}
-    return render(request, template, context)
+    return render(request, "blog/category.html", context)
